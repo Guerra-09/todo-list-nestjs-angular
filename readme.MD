@@ -1,4 +1,4 @@
-#Cosas vistas en este proyecto
+# Cosas vistas en este proyecto
 ### Backend:
     -   CRUD de tareas
     -   Task Entity
