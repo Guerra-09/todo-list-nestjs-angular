@@ -1,0 +1,26 @@
+<h1>Creating Tasks</h1>
+
+<div class="my-2">
+    
+    <form action="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input required class="form-control" id="name" #name>
+        </div>
+
+        <label for="description" class="form-label">Description (optional)</label>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" id="description" style="height: 50px" #description></textarea>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="isImportant" #isImportant>
+            <label class="form-check-label" for="isImportant">
+            This task is important
+            </label>
+        </div>
+
+        <button (click)="createTask(name.value, description.value, isImportant.checked)"
+        type="button" class="btn btn-success my-3">Save</button>
+    </form>
+</div>

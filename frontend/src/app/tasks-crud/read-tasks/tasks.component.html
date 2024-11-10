@@ -1,0 +1,77 @@
+<h1>My Tasks</h1>
+
+
+<div class="row">
+
+    <h3>Pending</h3>
+    @for (task of tasks; track task.id) {
+        
+        @if (task.status === Status.pending) {
+            <div class="card col-4 mx-2 my-2" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title"> {{ task.name }}</h5>
+                    <p class="card-text">{{ task.description }}</p>
+    
+    
+                    <a (click)="deleteTask(task.id)" class="btn btn-danger">Borrar</a> 
+    
+                    <a [routerLink]="['/update', task.id]" class="btn btn-primary">Editar</a> 
+    
+                    <!-- @if (task.status === Status.pending) { -->
+                        <a (click)="completedTask(task.id)" class="btn btn-success">Completed</a> 
+                    <!-- } -->
+    
+                    
+                    @if(task.isImportant) {
+                        <p> <b> Is important </b></p>
+                    } 
+                    
+                </div>
+    
+                <div class="card">
+                    <div class="card-body">
+                        {{ task.status }}
+                    </div>
+                </div>
+            </div>
+        }
+      
+
+        
+    }
+
+    <h3>Done</h3>
+    @for (task of tasks; track task.id) {
+        @if (task.status === Status.done) {
+            <div class="card col-4 mx-2 my-2" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title"> {{ task.name }}</h5>
+                    <p class="card-text">{{ task.description }}</p>
+    
+    
+                    <a (click)="deleteTask(task.id)" class="btn btn-danger">Borrar</a> 
+    
+                    <a [routerLink]="['/update', task.id]" class="btn btn-primary">Editar</a> 
+    
+                    
+                    @if(task.isImportant) {
+                        <p> <b> Is important </b></p>
+                    } 
+                    
+                </div>
+    
+                <div class="card">
+                    <div class="card-body">
+                        {{ task.status }}
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    
+</div>
+    
+
